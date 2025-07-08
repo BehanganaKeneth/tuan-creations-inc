@@ -17,7 +17,7 @@ export const HeroSection = () => {
             <div className="bg-white rounded-full px-4 py-2">
               <span className="text-african-sky font-semibold text-sm">🌍 Africa Inspired!</span>
             </div>
-            <span className="text-white px-4 py-2 text-sm font-medium">Enterprise Strategy Proposal</span>
+            <span className="text-white px-4 py-2 text-sm font-medium">Pan-African ICT Innovation Suite</span>
           </div>
 
           {/* Main Heading */}
@@ -32,11 +32,11 @@ export const HeroSection = () => {
             The United African Nation in Technology
           </p>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Building the strategic hub of Africa's digital economy through unified innovation ecosystems, 
-            Pan-African technology solutions, and enterprise-grade delivery across software, media, 
-            telecommunications, aerospace, and education.
+          {/* Enhanced Description */}
+          <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Building Africa's first fully integrated ICT ecosystem spanning software engineering, 
+            AI & robotics, digital media & broadcasting, telecommunications infrastructure, 
+            aerospace engineering, cybersecurity, and innovation incubation across the continent.
           </p>
 
           {/* CTA Buttons */}
@@ -50,14 +50,14 @@ export const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Key Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {/* Enhanced Key Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <div className="text-center p-6 card-african">
               <div className="w-12 h-12 bg-african-gradient rounded-lg mx-auto mb-4 flex items-center justify-center">
                 <Globe className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-african-sky mb-2">8 Divisions</h3>
-              <p className="text-gray-600">Comprehensive innovation sectors</p>
+              <p className="text-gray-600">Comprehensive ICT sectors</p>
             </div>
             <div className="text-center p-6 card-african">
               <div className="w-12 h-12 bg-african-gradient rounded-lg mx-auto mb-4 flex items-center justify-center">
@@ -70,8 +70,15 @@ export const HeroSection = () => {
               <div className="w-12 h-12 bg-african-gradient rounded-lg mx-auto mb-4 flex items-center justify-center">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-african-sky mb-2">2025-2030</h3>
-              <p className="text-gray-600">Strategic execution roadmap</p>
+              <h3 className="text-2xl font-bold text-african-sky mb-2">100K+</h3>
+              <p className="text-gray-600">Digital professionals by 2030</p>
+            </div>
+            <div className="text-center p-6 card-african">
+              <div className="w-12 h-12 bg-african-gradient rounded-lg mx-auto mb-4 flex items-center justify-center">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-african-sky mb-2">10M+</h3>
+              <p className="text-gray-600">Users across platforms by 2030</p>
             </div>
           </div>
         </div>

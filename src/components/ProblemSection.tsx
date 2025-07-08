@@ -1,32 +1,37 @@
 
-import { AlertTriangle, Wifi, Wrench, Users, Cpu, Globe } from "lucide-react";
+import { AlertTriangle, Wifi, Wrench, Users, Cpu, Globe, Shield, Satellite } from "lucide-react";
 
 export const ProblemSection = () => {
   const problems = [
     {
       icon: Globe,
-      title: "Fragmented Infrastructure",
-      description: "No unified digital ecosystem connecting stakeholders across the continent"
+      title: "Fragmented ICT Sectors",
+      description: "Software developers, media producers, telecom innovators, and AI engineers work in isolation without unified coordination"
+    },
+    {
+      icon: Satellite,
+      title: "Neglected Frontier Technologies",
+      description: "Robotics, chip design, embedded systems, satellite engineering, and immersive media are overlooked due to resource limitations"
+    },
+    {
+      icon: Shield,
+      title: "Reliance on Foreign Platforms",
+      description: "Data, media, software tools, and infrastructure are controlled by companies outside Africa"
     },
     {
       icon: Wrench,
-      title: "Limited Tools & Access",
-      description: "Talented youth and entrepreneurs lack access to professional software and innovation labs"
+      title: "Limited IP & Content Ownership",
+      description: "Africa's creativity fuels global platforms, but creators lack equitable revenue and control over their innovations"
     },
     {
       icon: Users,
-      title: "Under-supported Talent",
-      description: "Creatives and developers have skills, but no enterprise to nurture or scale them"
+      title: "Digital Skills Mismatch",
+      description: "Booming youth population lacks exposure to industry-grade tools and innovation labs for deep tech development"
     },
     {
       icon: Cpu,
-      title: "Neglected Frontier Tech",
-      description: "Robotics, aerospace, AI, and chip design are underrepresented in African markets"
-    },
-    {
-      icon: Wifi,
-      title: "Dependence on Foreign Tech",
-      description: "From infrastructure to apps to media, African IP remains rare and undervalued"
+      title: "Underrepresentation in Deep Tech",
+      description: "Africa is nearly invisible in global patents, conferences, and innovation indices in AI, hardware, and aerospace"
     }
   ];
 
@@ -40,8 +45,9 @@ export const ProblemSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-african-sky mb-6">
             The Problem We're Solving
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Africa faces critical digital development gaps that TUAN is positioned to address
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+            Africa lacks a homegrown, multidisciplinary ICT ecosystem that combines all critical 
+            technology sectors into unified, accessible, Africa-first solutions
           </p>
         </div>
 
@@ -64,12 +70,12 @@ export const ProblemSection = () => {
         <div className="mt-16 max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-african-sky to-african-emerald p-8 rounded-2xl text-white text-center">
             <h3 className="text-2xl font-bold mb-4">
-              TUAN's Response: Unified Innovation Ecosystem
+              TUAN's Response: Unified ICT Innovation Ecosystem
             </h3>
             <p className="text-lg leading-relaxed">
-              We're building a comprehensive enterprise structure that addresses these challenges 
-              through coordinated innovation, strategic partnerships, and Africa-first solutions 
-              that keep value and intellectual property on the continent.
+              We're building Africa's first fully integrated ICT powerhouse that addresses these challenges 
+              through coordinated innovation, strategic partnerships, and Africa-first solutions spanning 
+              digital, physical, and creative infrastructure that keeps value and intellectual property on the continent.
             </p>
           </div>
         </div>

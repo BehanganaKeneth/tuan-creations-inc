@@ -1,23 +1,32 @@
 
-import { Shield, Network, Lightbulb, CheckCircle } from "lucide-react";
+import { Shield, Network, Lightbulb, CheckCircle, Satellite, Cpu } from "lucide-react";
 
 export const WhyDifferent = () => {
   const differentiators = [
     {
       icon: Shield,
-      title: "African IP Creation",
-      description: "We create African intellectual property, not replicas of foreign models"
+      title: "Indigenous ICT Powerhouse",
+      description: "Africa's first fully integrated ecosystem combining software, aerospace, media, and telecom under one roof"
     },
     {
       icon: Network,
       title: "Interconnected Infrastructure",
-      description: "We deliver interconnected infrastructure, not siloed services"
+      description: "We deliver unified digital, physical, and creative infrastructure, not fragmented siloed services"
     },
     {
-      icon: Lightbulb,
-      title: "Pan-African Digital Force",
-      description: "We are building a structured, scalable, and African-led innovation ecosystem"
+      icon: Satellite,
+      title: "Frontier Technology Leadership",
+      description: "Leading in neglected African deep tech: satellites, AI, robotics, embedded systems, and space engineering"
     }
+  ];
+
+  const achievements = [
+    "Pan-African ICT Innovation Suite",
+    "Comprehensive Technology Sovereignty",
+    "Indigenous IP Creation & Ownership",
+    "Unified Digital Infrastructure",
+    "Aerospace & Space Technology",
+    "Continental Innovation Leadership"
   ];
 
   return (
@@ -28,7 +37,7 @@ export const WhyDifferent = () => {
             Why TUAN Is Different
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're not just another tech company. We're building the United African Nation in Innovation.
+            We're not just another tech company. We're building The United African Nation in Technology.
           </p>
         </div>
 
@@ -51,43 +60,25 @@ export const WhyDifferent = () => {
         {/* Core Message */}
         <div className="max-w-4xl mx-auto">
           <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border-2 border-african-gold/30 text-center">
-            <h3 className="text-3xl font-bold text-african-sky mb-6">
-              We are TUAN — The United African Nation in Innovation
-            </h3>
+            <div className="flex items-center justify-center mb-6">
+              <Cpu className="w-8 h-8 text-african-gold mr-3" />
+              <h3 className="text-3xl font-bold text-african-sky">
+                More Than a Company — A Call to Action
+              </h3>
+            </div>
             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              And we are here to lead Africa's digital transformation through unified innovation, 
-              strategic partnerships, and enterprise-grade delivery that keeps value on the continent.
+              TUAN Creations is a blueprint for building Africa's technological sovereignty. 
+              By uniting software, hardware, AI, aerospace, telecoms, digital content, and youth development 
+              into one powerhouse, we enable Africa not only to consume global technology—but to create it, shape it, and export it.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-african-emerald mr-3" />
-                  <span className="text-gray-700">Structured Enterprise Approach</span>
+              {achievements.map((achievement, index) => (
+                <div key={index} className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-african-emerald mr-3 flex-shrink-0" />
+                  <span className="text-gray-700">{achievement}</span>
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-african-emerald mr-3" />
-                  <span className="text-gray-700">Pan-African Scale & Vision</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-african-emerald mr-3" />
-                  <span className="text-gray-700">Innovation Ecosystem Leadership</span>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-african-emerald mr-3" />
-                  <span className="text-gray-700">Africa-First Technology Solutions</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-african-emerald mr-3" />
-                  <span className="text-gray-700">Strategic Government Partnerships</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-african-emerald mr-3" />
-                  <span className="text-gray-700">Sustainable Value Creation</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 
-import { Calendar, Target, Rocket, Star, Globe, Trophy } from "lucide-react";
+import { Calendar, Target, Rocket, Star, Globe, Trophy, Satellite, Tv } from "lucide-react";
 
 export const ExecutionRoadmap = () => {
   const roadmapData = [
@@ -7,42 +7,42 @@ export const ExecutionRoadmap = () => {
       year: "2025",
       icon: Rocket,
       title: "Foundation & Launch",
-      milestone: "Launch LMS + TUAN TV; pilot cross-department projects",
+      milestone: "Launch TUAN LMS + TUAN TV; prototype smart devices; 6 flagship shows + 10+ certified courses",
       color: "from-african-gold to-african-sunset"
     },
     {
       year: "2026",
       icon: Target,
-      title: "Partner Program",
-      milestone: "Formalize partner program; expand B2B contracts",
+      title: "B2B Expansion",
+      milestone: "Sign 10+ B2B/government contracts; formalize partner program; expand telecoms infrastructure",
       color: "from-african-sunset to-african-emerald"
     },
     {
       year: "2027",
       icon: Star,
-      title: "Technology Expansion",
-      milestone: "Launch AI and telecom services; regional scale-up begins",
+      title: "Technology Integration",
+      milestone: "Launch AI services and aerospace payload development; regional scale-up of IoT systems",
       color: "from-african-emerald to-african-sky"
     },
     {
       year: "2028",
-      icon: Globe,
-      title: "Innovation Forum",
-      milestone: "Space tech pilot; first United African Innovation Forum",
+      icon: Satellite,
+      title: "Space & Innovation Forum",
+      milestone: "Begin satellite telemetry development; host inaugural United African Innovation Week",
       color: "from-african-sky to-african-gold"
     },
     {
       year: "2029",
-      icon: Calendar,
-      title: "Continental Scale",
-      milestone: "Expand cloud, LMS, IoT to multiple African countries",
+      icon: Globe,
+      title: "Continental Expansion",
+      milestone: "Expand cloud, LMS, IoT to multiple African countries; reach 100K+ certified professionals",
       color: "from-african-gold to-african-emerald"
     },
     {
       year: "2030",
       icon: Trophy,
-      title: "Innovation City",
-      milestone: "Reach 10M+ users; launch TUAN satellite; open Innovation City",
+      title: "Innovation City & Satellite",
+      milestone: "Launch Africa's first youth-built satellite; establish TUAN Innovation City; reach 10M+ users",
       color: "from-african-emerald to-african-sunset"
     }
   ];
@@ -52,10 +52,10 @@ export const ExecutionRoadmap = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-african-sky mb-6">
-            Execution Roadmap
+            Launch Roadmap
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Strategic milestones for building Africa's digital future (2025–2030)
+            Strategic milestones for building Africa's technological sovereignty (2025–2030)
           </p>
         </div>
 
@@ -102,18 +102,22 @@ export const ExecutionRoadmap = () => {
         <div className="mt-16 max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-african-sky to-african-emerald p-8 rounded-2xl text-white text-center">
             <Trophy className="w-16 h-16 mx-auto mb-4" />
-            <h3 className="text-3xl font-bold mb-4">Vision 2030</h3>
+            <h3 className="text-3xl font-bold mb-4">Vision 2030: Technological Sovereignty</h3>
             <p className="text-xl leading-relaxed mb-4">
-              By 2030, TUAN will be the cornerstone of Africa's digital transformation
+              By 2030, TUAN will be Africa's leading integrated ICT, media, and aerospace enterprise
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
               <div className="text-center">
                 <div className="text-3xl font-bold">10M+</div>
-                <div className="text-sm opacity-90">Active Users</div>
+                <div className="text-sm opacity-90">Platform Users</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">54</div>
-                <div className="text-sm opacity-90">African Countries</div>
+                <div className="text-3xl font-bold">100K+</div>
+                <div className="text-sm opacity-90">Certified Professionals</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold">1st</div>
+                <div className="text-sm opacity-90">Youth-Built Satellite</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold">1</div>

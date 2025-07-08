@@ -15,50 +15,50 @@ export const DivisionsSection = () => {
     {
       icon: Brain,
       emoji: "🧠",
-      title: "Software, AI & Robotics Lab",
-      description: "Build apps, SaaS tools, AI models, robotics, and embedded systems"
+      title: "Software, AI, Robotics & Hardware Lab",
+      description: "Custom enterprise software, machine learning, robotics, embedded systems, smart chips, and IoT devices for African markets"
     },
     {
       icon: Video,
       emoji: "🎥",
       title: "Media Studio & TUAN TV",
-      description: "Produce films, animations, digital campaigns, and run TUAN's broadcast arm"
+      description: "24/7 broadcasting platform, content production, educational series, innovation journalism, and multi-language programming"
     },
     {
       icon: Wifi,
       emoji: "🌐",
-      title: "Telecom & IoT Division",
-      description: "Create infrastructure for rural/urban access, IoT kits, and digital connectivity"
+      title: "Telecom, Connectivity & Communication Systems",
+      description: "Enterprise VoIP, mesh networks, satellite internet, IoT infrastructure, telecom APIs, and indigenous equipment R&D"
     },
     {
       icon: Rocket,
       emoji: "🚀",
-      title: "Aerospace & Embedded Systems",
-      description: "Develop satellites, UAVs, telemetry systems, and space tech pilots"
+      title: "Aerospace, Satellites & Rocketry Program",
+      description: "Small-scale rockets, UAVs, satellite payloads, telemetry systems, weather monitoring, and ground station construction"
     },
     {
       icon: Shield,
       emoji: "☁️",
-      title: "Cloud & Cybersecurity Unit",
-      description: "Offer secure cloud, blockchain tools, hosting, and analytics platforms"
+      title: "Cloud, Cybersecurity & Data Science",
+      description: "Regional cloud infrastructure, blockchain development, penetration testing, data lakes, and AI-enhanced analytics"
     },
     {
       icon: GraduationCap,
       emoji: "🎓",
-      title: "Digital Academy & Incubator",
-      description: "Train developers and creatives; incubate startups built on TUAN standards"
+      title: "Digital Academy & Innovation Incubator",
+      description: "Tech bootcamps, certification programs, hardware maker labs, women in STEM empowerment, and LMS delivery"
     },
     {
       icon: Target,
       emoji: "🧩",
       title: "Strategy & Partnerships Office",
-      description: "Coordinate with governments, donors, and anchor enterprise growth"
+      description: "Coordination with governments, donors, universities, telcos, and anchoring enterprise growth initiatives"
     },
     {
       icon: Building,
       emoji: "🏛",
       title: "Executive Office",
-      description: "Provide governance, finance, compliance, and brand direction"
+      description: "Leadership, compliance, investor relations, finance management, and overall governance coordination"
     }
   ];
 
@@ -67,11 +67,11 @@ export const DivisionsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-african-sky mb-6">
-            Enterprise Structure
+            ICT Innovation Suite
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
             8 specialized divisions operating under unified governance, providing complete, 
-            interoperable services across Africa's digital stack
+            interoperable services across Africa's digital, physical, and creative infrastructure stack
           </p>
         </div>
 
@@ -98,12 +98,12 @@ export const DivisionsSection = () => {
         <div className="mt-16 max-w-5xl mx-auto">
           <div className="bg-gradient-to-r from-african-gold/10 to-african-emerald/10 p-8 rounded-2xl border border-african-gold/20">
             <h3 className="text-2xl font-bold text-african-sky text-center mb-4">
-              Unified Innovation Ecosystem
+              Africa's First Fully Integrated ICT Ecosystem
             </h3>
             <p className="text-lg text-gray-700 text-center leading-relaxed">
               Each division operates independently while contributing to TUAN's comprehensive 
               approach to African digital transformation. Together, they form an interconnected 
-              ecosystem that addresses every aspect of the continent's technology needs.
+              ecosystem that addresses every aspect of the continent's technology needs - from software to satellites.
             </p>
           </div>
         </div>

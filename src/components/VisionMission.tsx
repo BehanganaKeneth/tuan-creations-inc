@@ -24,13 +24,14 @@ export const VisionMission = () => {
               <h3 className="text-3xl font-bold text-african-sky">Our Vision</h3>
             </div>
             <p className="text-xl text-gray-700 leading-relaxed">
-              To be the <span className="font-semibold text-african-gold">strategic hub</span> of 
+              To be the <span className="font-semibold text-african-gold">center</span> of 
               Africa's digital economy and transformation.
             </p>
             <div className="mt-6 p-4 bg-african-gold/10 rounded-lg">
               <p className="text-african-sky font-medium">
                 We envision a unified African digital ecosystem where innovation thrives, 
-                talent flourishes, and technology serves the continent's unique needs.
+                talent flourishes, and technology serves the continent's unique needs through 
+                indigenous, multidisciplinary ICT solutions.
               </p>
             </div>
           </div>
@@ -44,18 +45,18 @@ export const VisionMission = () => {
               <h3 className="text-3xl font-bold text-african-sky">Our Mission</h3>
             </div>
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-              To uncover Africa's digital potential by building innovation capacity, 
-              connecting ecosystems, and delivering Africa-first solutions.
+              Uncovering Africa's digital potential by spearheading innovation, standardization, 
+              and the globalization of tailored Africa-inspired solutions.
             </p>
             
             <div className="grid grid-cols-1 gap-4">
               {[
-                "Software & AI Innovation",
-                "Media & Creative Economy",
+                "Software Engineering & AI",
+                "Digital Media & Broadcasting",
                 "Telecommunications Infrastructure", 
-                "Aerospace Technology",
-                "Digital Education",
-                "Innovation Ecosystems"
+                "Aerospace Engineering",
+                "Cybersecurity & Cloud Services",
+                "Innovation Incubation & Training"
               ].map((area, index) => (
                 <div key={index} className="flex items-center">
                   <Heart className="w-4 h-4 text-african-gold mr-3" />
