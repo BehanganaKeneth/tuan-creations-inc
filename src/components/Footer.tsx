@@ -1,5 +1,5 @@
 
-import { Rocket, Mail, MapPin, Phone, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Twitter } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -10,13 +10,11 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-african-gradient rounded-lg flex items-center justify-center">
-                <Rocket className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold">TUAN Creations Inc.</h3>
-                <p className="text-african-gold">The United African Nation in Technology</p>
-              </div>
+              <img 
+                src="/lovable-uploads/5207bd62-8d2e-4833-9aa7-7a4103ad4068.png" 
+                alt="TUAN Creations Logo"
+                className="h-16 w-auto"
+              />
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
               Building the strategic hub of Africa's digital economy through unified innovation 

@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Navigation = () => {
@@ -20,13 +20,11 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-african-gradient rounded-lg flex items-center justify-center">
-              <Rocket className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-african-sky">TUAN Creations</h1>
-              <p className="text-xs text-african-gold font-medium">The United African Nation</p>
-            </div>
+            <img 
+              src="/lovable-uploads/5207bd62-8d2e-4833-9aa7-7a4103ad4068.png" 
+              alt="TUAN Creations Logo"
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
