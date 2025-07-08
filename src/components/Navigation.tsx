@@ -11,6 +11,7 @@ export const Navigation = () => {
     { name: "Divisions", href: "#divisions" },
     { name: "Model", href: "#model" },
     { name: "Roadmap", href: "#roadmap" },
+    { name: "Register", href: "#register" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -45,7 +46,12 @@ export const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button className="btn-african">
-              Join the Vision
+              <a href="https://wa.me/256753414058?text=Hello%20TUAN%20Creations!%20I'm%20interested%20in%20learning%20more%20about%20your%20Pan-African%20ICT%20innovation%20suite." 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="text-white">
+                WhatsApp Us
+              </a>
             </Button>
           </div>
 
@@ -76,7 +82,12 @@ export const Navigation = () => {
               ))}
               <div className="px-3 pt-3">
                 <Button className="btn-african w-full">
-                  Join the Vision
+                  <a href="https://wa.me/256753414058?text=Hello%20TUAN%20Creations!%20I'm%20interested%20in%20learning%20more%20about%20your%20Pan-African%20ICT%20innovation%20suite." 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     className="text-white">
+                    WhatsApp Us
+                  </a>
                 </Button>
               </div>
             </div>

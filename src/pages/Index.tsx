@@ -8,6 +8,7 @@ import { BusinessModel } from "@/components/BusinessModel";
 import { ExecutionRoadmap } from "@/components/ExecutionRoadmap";
 import { WhyDifferent } from "@/components/WhyDifferent";
 import { ImmediatePriorities } from "@/components/ImmediatePriorities";
+import { RegistrationForm } from "@/components/RegistrationForm";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -22,6 +23,7 @@ const Index = () => {
       <ExecutionRoadmap />
       <WhyDifferent />
       <ImmediatePriorities />
+      <RegistrationForm />
       <Footer />
     </div>
   );

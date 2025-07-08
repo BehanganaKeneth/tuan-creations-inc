@@ -1,5 +1,5 @@
 
-import { Mail, MapPin, Phone, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Twitter, MessageCircle } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -38,6 +38,7 @@ export const Footer = () => {
               <li><a href="#divisions" className="text-gray-300 hover:text-white transition-colors">Our Divisions</a></li>
               <li><a href="#model" className="text-gray-300 hover:text-white transition-colors">Business Model</a></li>
               <li><a href="#roadmap" className="text-gray-300 hover:text-white transition-colors">Execution Roadmap</a></li>
+              <li><a href="#register" className="text-gray-300 hover:text-white transition-colors">Register Interest</a></li>
             </ul>
           </div>
 
@@ -47,15 +48,30 @@ export const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-african-gold" />
-                <span className="text-gray-300">info@tuancreations.africa</span>
+                <a href="mailto:tuancreations.africa@gmail.com" className="text-gray-300 hover:text-white transition-colors">
+                  tuancreations.africa@gmail.com
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-african-gold" />
-                <span className="text-gray-300">+234 XXX XXX XXXX</span>
+                <a href="tel:+256753414058" className="text-gray-300 hover:text-white transition-colors">
+                  +256 753 414 058
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <MessageCircle className="w-5 h-5 text-african-gold" />
+                <a 
+                  href="https://wa.me/256753414058?text=Hello%20TUAN%20Creations!%20I'm%20interested%20in%20learning%20more%20about%20your%20Pan-African%20ICT%20innovation%20suite."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  WhatsApp
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-african-gold" />
-                <span className="text-gray-300">Lagos, Nigeria</span>
+                <span className="text-gray-300">Uganda, East Africa</span>
               </div>
             </div>
           </div>
