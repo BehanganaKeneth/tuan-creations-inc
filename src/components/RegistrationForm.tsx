@@ -134,7 +134,7 @@ ${formData.message}
                 <div>
                   <Label htmlFor="role">I'm interested as a *</Label>
                   <Select value={formData.role} onValueChange={(value) => setFormData({...formData, role: value})}>
-                    <SelectTrigger>
+                    <SelectTrigger data-role="co-founder-trigger">
                       <SelectValue placeholder="Select your interest" />
                     </SelectTrigger>
                     <SelectContent>

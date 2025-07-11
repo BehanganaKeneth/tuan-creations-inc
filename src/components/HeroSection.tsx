@@ -3,6 +3,28 @@ import { ArrowRight, Sparkles, Globe, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
+  const handleExploreVision = () => {
+    const visionSection = document.getElementById('vision');
+    if (visionSection) {
+      visionSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleJoinAsCoFounder = () => {
+    const registerSection = document.getElementById('register');
+    if (registerSection) {
+      registerSection.scrollIntoView({ behavior: 'smooth' });
+      
+      // Wait for scroll to complete, then pre-select co-founder option
+      setTimeout(() => {
+        const roleSelect = document.querySelector('[data-role="co-founder-trigger"]') as HTMLElement;
+        if (roleSelect) {
+          roleSelect.click();
+        }
+      }, 800);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Elements */}
@@ -41,11 +63,11 @@ export const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="btn-african text-lg px-8 py-4">
+            <Button size="lg" className="btn-african text-lg px-8 py-4" onClick={handleExploreVision}>
               Explore Our Vision
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="outline" size="lg" className="text-african-sky border-african-sky hover:bg-african-sky hover:text-white text-lg px-8 py-4">
+            <Button variant="outline" size="lg" className="text-african-sky border-african-sky hover:bg-african-sky hover:text-white text-lg px-8 py-4" onClick={handleJoinAsCoFounder}>
               Join as Co-Founder
             </Button>
           </div>
