@@ -1,14 +1,11 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Phone, MessageCircle, FileText, Award, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { FileUpload } from "./FileUpload";
+import { FormFields } from "./FormFields";
+import { ContactInfo } from "./ContactInfo";
+import { BenefitsCard } from "./BenefitsCard";
 
 export const RegistrationForm = () => {
   const { toast } = useToast();
@@ -28,6 +25,22 @@ export const RegistrationForm = () => {
   });
 
   const requiresCV = ['co-founder', 'talent'].includes(formData.role);
+
+  // Check for co-founder hash and set role
+  useEffect(() => {
+    if (window.location.hash === '#register' && window.location.search.includes('role=co-founder')) {
+      setFormData(prev => ({ ...prev, role: 'co-founder' }));
+      
+      // Open the role selector to show it's been pre-selected
+      setTimeout(() => {
+        const trigger = document.querySelector('[data-role="co-founder-trigger"]') as HTMLElement;
+        if (trigger) {
+          trigger.click();
+          setTimeout(() => trigger.click(), 100); // Close it after showing
+        }
+      }, 500);
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -130,132 +143,12 @@ IMPORTANT: Please manually attach the above files to this email before sending.
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name">Full Name *</Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      placeholder="+256 XXX XXX XXX"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="company">Company/Organization</Label>
-                    <Input
-                      id="company"
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({...formData, company: e.target.value})}
-                      placeholder="Your company or organization"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="role">I'm interested as a *</Label>
-                  <Select value={formData.role} onValueChange={(value) => setFormData({...formData, role: value})}>
-                    <SelectTrigger data-role="co-founder-trigger">
-                      <SelectValue placeholder="Select your interest" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="co-founder">Co-Founder</SelectItem>
-                      <SelectItem value="investor">Investor</SelectItem>
-                      <SelectItem value="client">Client</SelectItem>
-                      <SelectItem value="partner">Strategic Partner</SelectItem>
-                      <SelectItem value="talent">Talent/Developer</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* File Upload Sections */}
-                {formData.role && (
-                  <div className="space-y-6 border-t pt-6">
-                    <h3 className="text-lg font-semibold text-african-sky">Professional Documents</h3>
-                    
-                    {requiresCV && (
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <div className="flex items-center gap-2 mb-2">
-                          <AlertCircle className="w-4 h-4 text-blue-600" />
-                          <span className="text-sm font-medium text-blue-800">
-                            CV/Resume is required for {formData.role} applications
-                          </span>
-                        </div>
-                      </div>
-                    )}
-
-                    <FileUpload
-                      id="cv-upload"
-                      label="CV/Resume"
-                      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                      required={requiresCV}
-                      files={files.cv}
-                      onFilesChange={(newFiles) => setFiles({...files, cv: newFiles})}
-                      maxSize={5}
-                      icon={<FileText className="w-4 h-4" />}
-                    />
-
-                    <FileUpload
-                      id="certifications-upload"
-                      label="Certifications & Credentials"
-                      accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
-                      multiple
-                      files={files.certifications}
-                      onFilesChange={(newFiles) => setFiles({...files, certifications: newFiles})}
-                      maxSize={5}
-                      icon={<Award className="w-4 h-4" />}
-                    />
-
-                    <FileUpload
-                      id="portfolio-upload"
-                      label="Portfolio/Work Samples"
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png"
-                      multiple
-                      files={files.portfolio}
-                      onFilesChange={(newFiles) => setFiles({...files, portfolio: newFiles})}
-                      maxSize={10}
-                      icon={<FileText className="w-4 h-4" />}
-                    />
-                  </div>
-                )}
-
-                <div>
-                  <Label htmlFor="message">Tell us about your interest</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    placeholder="Describe your interest in TUAN Creations, your background, and how you'd like to contribute or collaborate..."
-                    rows={4}
-                  />
-                </div>
+                <FormFields 
+                  formData={formData}
+                  setFormData={setFormData}
+                  files={files}
+                  setFiles={setFiles}
+                />
 
                 <Button type="submit" className="btn-african w-full" size="lg">
                   Submit Registration
@@ -266,88 +159,8 @@ IMPORTANT: Please manually attach the above files to this email before sending.
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <Card className="card-african">
-              <CardHeader>
-                <CardTitle className="text-2xl text-african-sky">Direct Contact</CardTitle>
-                <CardDescription>
-                  Reach out to us directly through these channels
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-african-gradient rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-african-sky">Email</h4>
-                    <a 
-                      href="mailto:tuancreations.africa@gmail.com"
-                      className="text-gray-600 hover:text-african-gold transition-colors"
-                    >
-                      tuancreations.africa@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-african-gradient rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-african-sky">Phone</h4>
-                    <a 
-                      href="tel:+256753414058"
-                      className="text-gray-600 hover:text-african-gold transition-colors"
-                    >
-                      +256 753 414 058
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-african-gradient rounded-lg flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-african-sky">WhatsApp</h4>
-                    <a 
-                      href="https://wa.me/256753414058?text=Hello%20TUAN%20Creations!%20I'm%20interested%20in%20learning%20more%20about%20your%20Pan-African%20ICT%20innovation%20suite."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-african-gold transition-colors"
-                    >
-                      Message us on WhatsApp
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="card-african">
-              <CardHeader>
-                <CardTitle className="text-xl text-african-sky">Why Join TUAN?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-600">
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-african-gold rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Be part of Africa's first fully integrated ICT innovation suite</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-african-gold rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Access to cutting-edge technology and innovation opportunities</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-african-gold rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Network with like-minded innovators across Africa</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-african-gold rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Contribute to building Africa's technological sovereignty</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <ContactInfo />
+            <BenefitsCard />
           </div>
         </div>
       </div>
