@@ -6,8 +6,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, FileText, Award, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { FileUpload } from "./FileUpload";
 
 export const RegistrationForm = () => {
   const { toast } = useToast();
@@ -20,9 +21,39 @@ export const RegistrationForm = () => {
     message: ""
   });
 
+  const [files, setFiles] = useState({
+    cv: [] as File[],
+    certifications: [] as File[],
+    portfolio: [] as File[]
+  });
+
+  const requiresCV = ['co-founder', 'talent'].includes(formData.role);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validate CV requirement
+    if (requiresCV && files.cv.length === 0) {
+      toast({
+        title: "CV Required",
+        description: "Please upload your CV/Resume for this role.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Create file list for email body
+    const fileList = [];
+    if (files.cv.length > 0) {
+      fileList.push(`CV/Resume: ${files.cv.map(f => f.name).join(', ')}`);
+    }
+    if (files.certifications.length > 0) {
+      fileList.push(`Certifications: ${files.certifications.map(f => f.name).join(', ')}`);
+    }
+    if (files.portfolio.length > 0) {
+      fileList.push(`Portfolio/Work Samples: ${files.portfolio.map(f => f.name).join(', ')}`);
+    }
+
     // Create email body
     const emailBody = `
 New Registration from TUAN Creations Website
@@ -35,6 +66,13 @@ Interest as: ${formData.role}
 
 Message:
 ${formData.message}
+
+${fileList.length > 0 ? `
+FILES TO ATTACH:
+${fileList.join('\n')}
+
+IMPORTANT: Please manually attach the above files to this email before sending.
+` : ''}
     `;
 
     // Create mailto link
@@ -43,9 +81,13 @@ ${formData.message}
     // Open email client
     window.location.href = mailtoLink;
     
+    const hasFiles = files.cv.length > 0 || files.certifications.length > 0 || files.portfolio.length > 0;
+    
     toast({
       title: "Registration Initiated",
-      description: "Your email client should open. Please send the email to complete your registration.",
+      description: hasFiles 
+        ? "Your email client should open. Please manually attach your files before sending the email."
+        : "Your email client should open. Please send the email to complete your registration.",
     });
 
     // Reset form
@@ -56,6 +98,11 @@ ${formData.message}
       company: "",
       role: "",
       message: ""
+    });
+    setFiles({
+      cv: [],
+      certifications: [],
+      portfolio: []
     });
   };
 
@@ -147,6 +194,57 @@ ${formData.message}
                     </SelectContent>
                   </Select>
                 </div>
+
+                {/* File Upload Sections */}
+                {formData.role && (
+                  <div className="space-y-6 border-t pt-6">
+                    <h3 className="text-lg font-semibold text-african-sky">Professional Documents</h3>
+                    
+                    {requiresCV && (
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                          <AlertCircle className="w-4 h-4 text-blue-600" />
+                          <span className="text-sm font-medium text-blue-800">
+                            CV/Resume is required for {formData.role} applications
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    <FileUpload
+                      id="cv-upload"
+                      label="CV/Resume"
+                      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                      required={requiresCV}
+                      files={files.cv}
+                      onFilesChange={(newFiles) => setFiles({...files, cv: newFiles})}
+                      maxSize={5}
+                      icon={<FileText className="w-4 h-4" />}
+                    />
+
+                    <FileUpload
+                      id="certifications-upload"
+                      label="Certifications & Credentials"
+                      accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                      multiple
+                      files={files.certifications}
+                      onFilesChange={(newFiles) => setFiles({...files, certifications: newFiles})}
+                      maxSize={5}
+                      icon={<Award className="w-4 h-4" />}
+                    />
+
+                    <FileUpload
+                      id="portfolio-upload"
+                      label="Portfolio/Work Samples"
+                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png"
+                      multiple
+                      files={files.portfolio}
+                      onFilesChange={(newFiles) => setFiles({...files, portfolio: newFiles})}
+                      maxSize={10}
+                      icon={<FileText className="w-4 h-4" />}
+                    />
+                  </div>
+                )}
 
                 <div>
                   <Label htmlFor="message">Tell us about your interest</Label>
